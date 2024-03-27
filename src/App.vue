@@ -110,6 +110,18 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
 });
+
+
+document.onkeydown=function(){if(window.event&&window.event.keyCode==123){alert("不要太调皮奥");
+                              event.keyCode=0;event.returnValue=false;}
+                              if(window.event&&window.event.keyCode==13)
+                              {window.event.keyCode=505;}
+                              if(window.event&&window.event.keyCode==8)
+                              {alert(str+"\n这样的行为也不行奥！");
+                               window.event.returnValue=false;
+                              }}
+
+  
 </script>
 
 <style lang="scss" scoped>
