@@ -32,6 +32,8 @@
     </main>
   </Transition>
 </template>
+
+
 <script setup>
 import { helloInit, checkDays } from "@/utils/getTime.js";
 import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
@@ -122,6 +124,43 @@ document.onkeydown=function(){if(window.event&&window.event.keyCode==123){alert(
                               }}
 
   
+</script>
+
+<script src="https://zhaozhen.xyz/www/wwwroot/zhaozhen.xyz/layer.js">
+<!--禁用F12-->
+document.onkeydown = function(){
+    if(window.event && window.event.keyCode == 123) {
+        layer.msg("F12被禁用");
+        event.keyCode=0;
+        event.returnValue=false;
+    }
+  <!--禁止调试-->
+(function noDebuger() {
+    function testDebuger() {
+        var d = new Date();
+        debugger;
+        if (new Date() - d > 10) {
+            document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">都说了F12被禁用，还试<a href="/" target="_blank" style="color:#4285f4;">点击返回</a>~</div>';
+            return true;
+        }
+        return false;
+    }
+    function start() {
+        while (testDebuger()) {
+            testDebuger();
+        }
+    }
+    if (!testDebuger()) {
+        window.onblur = function () {
+            setTimeout(function () {
+                start();
+            }, 500)
+        }
+    }else {
+        start();
+    }
+})();
+}    
 </script>
 
 <style lang="scss" scoped>
